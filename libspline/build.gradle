@@ -10,7 +10,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
-        versionName "0.15"
+        versionName "0.15.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -32,8 +32,39 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
 }
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+ext {
+    bintrayRepo = 'libspline'
+    bintrayName = 'libspline'
+
+    publishedGroupId = 'com.angelsware.libspline'
+    libraryName = 'libspline'
+    artifact = 'libspline'
+
+    libraryDescription = 'Spline library'
+
+    siteUrl = 'https://github.com/angelsware/libspline-android'
+    gitUrl = 'https://github.com/angelsware/libspline-android.git'
+
+    libraryVersion = '0.15.0'
+
+    developerId = 'klarre'
+    developerName = 'Joachim Klahr'
+    developerEmail = 'joachim@klahr.se'
+	organization = 'angelsware'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/quangctkm9207/template-files/master/android/gradle/install.gradle'
+apply from: 'https://raw.githubusercontent.com/quangctkm9207/template-files/master/android/gradle/bintray.gradle'
