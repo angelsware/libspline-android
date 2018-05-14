@@ -1,0 +1,3 @@
+bintray.user=USERNAME
+bintray.apikey=API_KEY
+bintray.gpg.password=GPG_PASSWORD
