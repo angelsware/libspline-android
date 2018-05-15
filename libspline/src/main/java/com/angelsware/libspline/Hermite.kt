@@ -34,10 +34,10 @@ abstract class Hermite(controlPoints: Array<ControlPoint>) : Curve {
 
     override fun getPositionOnSegment(distance: Double, segment: Int): Point {
         val dMuld = distance * distance
-        val fH1 = (2.0F * distance - 3.0F) * dMuld + 1.0F
-        val fH2 = (distance - 2.0F) * dMuld + distance
+        val fH1 = (2.0 * distance - 3.0) * dMuld + 1.0
+        val fH2 = (distance - 2.0) * dMuld + distance
         val fH3 = (dMuld - distance) * distance
-        val fH4 = (-2.0F * distance + 3.0F) * dMuld
+        val fH4 = (-2.0 * distance + 3.0) * dMuld
 
         val begin: ControlPoint = mSegments[segment].begin
         val end: ControlPoint = mSegments[segment].end
@@ -64,10 +64,10 @@ abstract class Hermite(controlPoints: Array<ControlPoint>) : Curve {
     }
 
     override fun getTangentOnSegment(distance: Double, segment: Int): Point {
-        val fH1 = (6.0F * distance - 6.0F) * distance
-        val fH2 = (2.0F * distance - 4.0F) * distance + 1.0F
-        val fH3 = (3.0F * distance - 2.0F) * distance
-        val fH4 = (-6.0F * distance + 6.0F) * distance
+        val fH1 = (6.0 * distance - 6.0) * distance
+        val fH2 = (2.0 * distance - 4.0) * distance + 1.0
+        val fH3 = (3.0 * distance - 2.0) * distance
+        val fH4 = (-6.0 * distance + 6.0) * distance
 
         val begin: ControlPoint = mSegments[segment].begin
         val end: ControlPoint = mSegments[segment].end
