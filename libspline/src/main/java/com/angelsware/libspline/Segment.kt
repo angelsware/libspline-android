@@ -11,10 +11,10 @@ class Segment {
     internal var lengthFromBeginning = 0.0
 
     internal fun setBeginTangent(tangent: Point) {
-        end.tangent = tangent
+        begin.tangent = tangent
     }
 
     internal fun setEndTangent(tangent: Point) {
-        begin.tangent = tangent
+        end.tangent = tangent
     }
 }
