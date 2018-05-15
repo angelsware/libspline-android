@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 1
-        versionName "0.15.0"
+        versionCode 2
+        versionName "0.15.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -55,11 +55,11 @@ ext {
     siteUrl = 'https://github.com/angelsware/libspline-android'
     gitUrl = 'https://github.com/angelsware/libspline-android.git'
 
-    libraryVersion = '0.15.0'
+    libraryVersion = '0.15.1'
 
     developerId = 'klarre'
     developerName = 'Joachim Klahr'
-    developerEmail = 'joachim@klahr.se'
+    developerEmail = 'joachim@angelsware.com'
 	organization = 'angelsware'
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
