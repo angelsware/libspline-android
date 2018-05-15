@@ -22,31 +22,35 @@ class KochanekBartels(controlPoints: Array<ControlPoint>, tension: Double, conti
         val amount = getNumControlPoints()
 
         for (i in (0..(amount - 3))) {
-            positionA.x = mSegments[i].end.position.x - mSegments[i].begin.position.x
-            positionA.y = mSegments[i].end.position.y - mSegments[i].begin.position.y
-            positionA.z = mSegments[i].end.position.z - mSegments[i].begin.position.z
+            val pA = Point()
+            val pB = Point()
+            pA.x = mSegments[i].end.position.x - mSegments[i].begin.position.x
+            pA.y = mSegments[i].end.position.y - mSegments[i].begin.position.y
+            pA.z = mSegments[i].end.position.z - mSegments[i].begin.position.z
 
-            positionB.x = mSegments[i + 1].end.position.x - mSegments[i + 1].begin.position.x
-            positionB.y = mSegments[i + 1].end.position.y - mSegments[i + 1].begin.position.y
-            positionB.z = mSegments[i + 1].end.position.z - mSegments[i + 1].begin.position.z
+            pB.x = mSegments[i + 1].end.position.x - mSegments[i + 1].begin.position.x
+            pB.y = mSegments[i + 1].end.position.y - mSegments[i + 1].begin.position.y
+            pB.z = mSegments[i + 1].end.position.z - mSegments[i + 1].begin.position.z
 
             val a = 0.5 * (1.0 - tension) * (1.0 + continuity) * (1.0 + bias)
             val b = 0.5 * (1.0 - tension) * (1.0 - continuity) * (1.0 - bias)
 
-            positionA.x *= a
-            positionA.y *= a
-            positionA.z *= a
-            positionB.x *= b
-            positionB.y *= b
-            positionB.z *= b
-            positionA.x += positionB.x
-            positionA.y += positionB.y
-            positionA.z += positionB.z
+            pA.x *= a
+            pA.y *= a
+            pA.z *= a
+            pB.x *= b
+            pB.y *= b
+            pB.z *= b
+            pA.x += pB.x
+            pA.y += pB.y
+            pA.z += pB.z
+            mSegments[i].setEndTangent(pA);
         }
 
-        positionA.x = mSegments[amount - 2].begin.tangent.x
-        positionA.y = mSegments[amount - 2].begin.tangent.y
-        positionA.z = mSegments[amount - 2].begin.tangent.z
-        mSegments[amount - 2].setEndTangent(positionA)
+        val endPosition = Point()
+        endPosition.x = mSegments[amount - 2].begin.tangent.x
+        endPosition.y = mSegments[amount - 2].begin.tangent.y
+        endPosition.z = mSegments[amount - 2].begin.tangent.z
+        mSegments[amount - 2].setEndTangent(endPosition)
     }
 }

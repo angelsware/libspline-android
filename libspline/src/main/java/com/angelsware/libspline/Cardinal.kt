@@ -11,23 +11,25 @@ open class Cardinal(controlPoints: Array<ControlPoint>, tangentStrength: Double,
     }
 
     private fun calculateTangents(strength: Double) {
-        val tangent = Point()
-        tangent.x = mSegments[0].end.position.x - mSegments[0].begin.position.x
-        tangent.y = mSegments[0].end.position.y - mSegments[0].begin.position.y
-        tangent.z = mSegments[0].end.position.z - mSegments[0].begin.position.z
-        mSegments[0].setBeginTangent(tangent)
+        val beginTangent = Point()
+        beginTangent.x = mSegments[0].end.position.x - mSegments[0].begin.position.x
+        beginTangent.y = mSegments[0].end.position.y - mSegments[0].begin.position.y
+        beginTangent.z = mSegments[0].end.position.z - mSegments[0].begin.position.z
+        mSegments[0].setBeginTangent(beginTangent)
         val amount = getNumControlPoints()
 
         for (i in (0..(amount - 3))) {
-            tangent.x = strength * (mSegments[i+1].end.position.x - mSegments[i].begin.position.x)
-            tangent.y = strength * (mSegments[i+1].end.position.y - mSegments[i].begin.position.y)
-            tangent.z = strength * (mSegments[i+1].end.position.z - mSegments[i].begin.position.z)
-            mSegments[i].setEndTangent(tangent)
+            val t = Point()
+            t.x = strength * (mSegments[i+1].end.position.x - mSegments[i].begin.position.x)
+            t.y = strength * (mSegments[i+1].end.position.y - mSegments[i].begin.position.y)
+            t.z = strength * (mSegments[i+1].end.position.z - mSegments[i].begin.position.z)
+            mSegments[i].setEndTangent(t)
         }
 
-        tangent.x = mSegments[amount - 2].end.position.x - mSegments[amount - 2].begin.position.x
-        tangent.y = mSegments[amount - 2].end.position.y - mSegments[amount - 2].begin.position.y
-        tangent.z = mSegments[amount - 2].end.position.z - mSegments[amount - 2].begin.position.z
-        mSegments[amount - 2].setEndTangent(tangent)
+        val endTangent = Point()
+        endTangent.x = mSegments[amount - 2].end.position.x - mSegments[amount - 2].begin.position.x
+        endTangent.y = mSegments[amount - 2].end.position.y - mSegments[amount - 2].begin.position.y
+        endTangent.z = mSegments[amount - 2].end.position.z - mSegments[amount - 2].begin.position.z
+        mSegments[amount - 2].setEndTangent(endTangent)
     }
 }
