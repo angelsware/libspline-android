@@ -10,7 +10,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 4
-        versionName "0.15.3"
+        versionName "0.16.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -55,7 +55,7 @@ ext {
     siteUrl = 'https://github.com/angelsware/libspline-android'
     gitUrl = 'https://github.com/angelsware/libspline-android.git'
 
-    libraryVersion = '0.15.3'
+    libraryVersion = '0.16.0'
 
     developerId = 'klarre'
     developerName = 'Joachim Klahr'

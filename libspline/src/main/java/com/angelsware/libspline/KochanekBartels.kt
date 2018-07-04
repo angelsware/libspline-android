@@ -17,6 +17,7 @@ class KochanekBartels(controlPoints: Array<ControlPoint>, tension: Double, conti
         positionA.x = mSegments[0].end.position.x - mSegments[0].begin.position.x
         positionA.y = mSegments[0].end.position.y - mSegments[0].begin.position.y
         positionA.z = mSegments[0].end.position.z - mSegments[0].begin.position.z
+        positionA.normalize();
         mSegments[0].setBeginTangent(positionA)
 
         val amount = getNumControlPoints()
@@ -44,6 +45,7 @@ class KochanekBartels(controlPoints: Array<ControlPoint>, tension: Double, conti
             pA.x += pB.x
             pA.y += pB.y
             pA.z += pB.z
+            pA.normalize();
             mSegments[i].setEndTangent(pA);
         }
 
@@ -51,6 +53,7 @@ class KochanekBartels(controlPoints: Array<ControlPoint>, tension: Double, conti
         endPosition.x = mSegments[amount - 2].begin.tangent.x
         endPosition.y = mSegments[amount - 2].begin.tangent.y
         endPosition.z = mSegments[amount - 2].begin.tangent.z
+        endPosition.normalize();
         mSegments[amount - 2].setEndTangent(endPosition)
     }
 }
