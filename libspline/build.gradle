@@ -4,16 +4,13 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 27
 
-
-
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 4
-        versionName "0.16.0"
+        versionName "0.16.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -22,7 +19,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -55,7 +51,7 @@ ext {
     siteUrl = 'https://github.com/angelsware/libspline-android'
     gitUrl = 'https://github.com/angelsware/libspline-android.git'
 
-    libraryVersion = '0.16.0'
+    libraryVersion = '0.16.1'
 
     developerId = 'klarre'
     developerName = 'Joachim Klahr'

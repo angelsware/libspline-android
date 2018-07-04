@@ -76,7 +76,6 @@ abstract class Hermite(controlPoints: Array<ControlPoint>) : Curve {
         val y = begin.position.y * fH1 + begin.tangent.y * fH2 + end.tangent.y * fH3 + end.position.y * fH4
         val z = begin.position.z * fH1 + begin.tangent.z * fH2 + end.tangent.z * fH3 + end.position.z * fH4
         val point = Point(x, y, z)
-        point.normalize()
         return point
     }
 
